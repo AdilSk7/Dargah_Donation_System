@@ -209,7 +209,6 @@ function AuthPage({ onLogin }) {
             style={{width:"100%",background:loading?"#aaa":"#1a6e4a",color:"#fff",border:"none",borderRadius:10,padding:12,fontSize:15,fontWeight:700,cursor:loading?"not-allowed":"pointer"}}>
             {loading ? "Please wait..." : tab==="login" ? "Login →" : "Register ✓"}
           </button>
-          {tab==="login" && <p style={{textAlign:"center",marginTop:10,fontSize:12,color:"#888"}}>Admin: 9001447689 / admin123</p>}
         </div>
       </div>
     </div>
