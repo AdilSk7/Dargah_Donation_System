@@ -342,12 +342,12 @@ def health():
 # ── Init DB + seed admin ───────────────────────────────────────────────────────
 def seed():
     db.create_all()
-    if not Member.query.filter_by(mobile="9001447689").first():
-        hashed = bcrypt.generate_password_hash("admin123").decode("utf-8")
-        admin = Member(name="Admin", mobile="9001447689", role="admin", password=hashed, address="Dargah Office")
+    if not Member.query.filter_by(mobile="9440458074").first():
+        hashed = bcrypt.generate_password_hash("Abzal2344").decode("utf-8")
+        admin = Member(name="Admin", mobile="9440458074", role="admin", password=hashed, address="Dargah Office")
         db.session.add(admin)
         db.session.commit()
-        print("✅ Admin seeded: 9001447689 / admin123")
+        print("✅ Admin seeded: 9440458074 / Abzal2344")
 
 with app.app_context():
     try:
@@ -359,7 +359,7 @@ with app.app_context():
 @app.route("/reset-admin")
 def reset_admin():
     admin = Member.query.filter_by(
-        mobile="9001447689"
+        mobile="9440458074"
     ).first()
 
     if admin:
@@ -367,12 +367,12 @@ def reset_admin():
         db.session.commit()
 
     hashed = bcrypt.generate_password_hash(
-        "admin123"
+        "Abzal2344"
     ).decode("utf-8")
 
     new_admin = Member(
         name="Admin",
-        mobile="9001447689",
+        mobile="9440458074",
         role="admin",
         password=hashed,
         address="Dargah Office"
