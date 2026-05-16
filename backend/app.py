@@ -357,13 +357,16 @@ with app.app_context():
         print("Database error:", e)
 
 @app.route("/reset-admin")
+@app.route("/reset-admin")
 def reset_admin():
-    admin = Member.query.filter_by(
-        mobile="9440458074"
+
+    # Delete ANY admin account
+    old_admin = Member.query.filter_by(
+        role="admin"
     ).first()
 
-    if admin:
-        db.session.delete(admin)
+    if old_admin:
+        db.session.delete(old_admin)
         db.session.commit()
 
     hashed = bcrypt.generate_password_hash(
@@ -381,7 +384,7 @@ def reset_admin():
     db.session.add(new_admin)
     db.session.commit()
 
-    return "Admin reset successful"
+    return "Admin updated successfully"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
