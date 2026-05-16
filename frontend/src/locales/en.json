@@ -1,0 +1,10 @@
+{
+  "login":"Login",
+  "register":"Register",
+  "members":"Members",
+  "payments":"Payments",
+  "reports":"Reports",
+  "addMember":"Add Member",
+  "mobile":"Mobile Number",
+  "address":"Address"
+}
