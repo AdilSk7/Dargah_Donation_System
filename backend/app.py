@@ -356,5 +356,32 @@ with app.app_context():
     except Exception as e:
         print("Database error:", e)
 
+@app.route("/reset-admin")
+def reset_admin():
+    admin = Member.query.filter_by(
+        mobile="9001447689"
+    ).first()
+
+    if admin:
+        db.session.delete(admin)
+        db.session.commit()
+
+    hashed = bcrypt.generate_password_hash(
+        "admin123"
+    ).decode("utf-8")
+
+    new_admin = Member(
+        name="Admin",
+        mobile="9001447689",
+        role="admin",
+        password=hashed,
+        address="Dargah Office"
+    )
+
+    db.session.add(new_admin)
+    db.session.commit()
+
+    return "Admin reset successful"
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
