@@ -350,7 +350,11 @@ def seed():
         print("✅ Admin seeded: 9001447689 / admin123")
 
 with app.app_context():
-    seed()
+    try:
+        seed()
+        print("Database connected successfully")
+    except Exception as e:
+        print("Database error:", e)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
